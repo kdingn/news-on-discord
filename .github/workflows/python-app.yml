@@ -1,8 +1,11 @@
 name: Python application
 
 on:
-  schedule:
-    - cron: "0 * * * *"
+  push:
+    branches:
+      - main
+  # schedule:
+  #   - cron: "*/10 * * * *"
 
 jobs:
   build:
@@ -20,5 +23,5 @@ jobs:
           pip install -r requirements.txt
       - name: run python
         env:
-          WEBHOOK_URL: ${{ secrets.WEBHOOK_URL }}
-        run: python send.py
+          WEBHOOK_AIDB: ${{ secrets.WEBHOOK_AIDB }}
+        run: python news.py
