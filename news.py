@@ -28,9 +28,9 @@ def aidb():
     df["date"] = pd.to_datetime(df["date"])
     df = df[
         df["date"]
-        > pd.Timestamp.today(tz="JST") - pd.tseries.offsets.DateOffset(days=1)
+        > pd.Timestamp.today() - pd.tseries.offsets.DateOffset(days=1)
     ]
-    print(pd.Timestamp.today(tz="JST"))
+    print(pd.Timestamp.today())
 
     webhook_url = os.environ.get("WEBHOOK_AIDB")
     for date, link in zip(df["date"], df["link"]):
