@@ -28,7 +28,7 @@ def aidb():
     df["date"] = pd.to_datetime(df["date"])
     df = df[
         df["date"]
-        > pd.Timestamp.today() - pd.tseries.offsets.DateOffset(days=1)
+        > pd.Timestamp.today() - pd.tseries.offsets.DateOffset(days=2)
     ]
     print(pd.Timestamp.today())
 
